@@ -9,7 +9,7 @@ public class SymmetricEncryption implements AbstractEncryption<String>{
     private static final String ALGORITHM="AES";
     private static final String TRANSFORMATION="AES";
     private final String key=generateKey();
-    SymmetricEncryption(){}
+    private SymmetricEncryption(){}
 
     private String generateKey() {
         return UUID.randomUUID().toString().substring(0,16);

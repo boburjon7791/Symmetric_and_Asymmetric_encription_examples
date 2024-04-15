@@ -5,7 +5,7 @@ import java.security.*;
 
 public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
     private static final String ALGORITHM="RSA";
-    AsymmetricEncryption(){}
+    private AsymmetricEncryption(){}
     /**
      * It is key generation method example for asymmetric encryption
      * */
