@@ -12,11 +12,7 @@ public class Main {
         System.out.println(" =========== ");
         AbstractEncryption<byte[]> asymmetric = AbstractEncryption.ofAsymmetric();
         byte[] encrypted1 = asymmetric.encrypt(value);
-        StringBuilder sb=new StringBuilder();
-        for (byte b : encrypted1) {
-            sb.append((char)b);
-        }
-        System.out.println("encrypted1 = " + sb);
+        System.out.println("encrypted1 = " + new String(encrypted1));
         String decrypted1 = asymmetric.decrypt(encrypted1);
         System.out.println("decrypted1 = " + decrypted1);
     }

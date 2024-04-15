@@ -5,6 +5,7 @@ import java.security.*;
 
 public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
     private static final String ALGORITHM="RSA";
+    AsymmetricEncryption(){}
     /**
      * It is key generation method example for asymmetric encryption
      * */
@@ -15,8 +16,7 @@ public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
             generator.initialize(2048);
             return generator.generateKeyPair();
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
     /**
@@ -28,8 +28,7 @@ public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
             cipher.init(Cipher.ENCRYPT_MODE,key.getPublic());
             return cipher.doFinal(data.getBytes());
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
     /**
@@ -42,8 +41,7 @@ public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
             byte[] decryptedBytes = cipher.doFinal(encryptedText);
             return new String(decryptedBytes);
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }

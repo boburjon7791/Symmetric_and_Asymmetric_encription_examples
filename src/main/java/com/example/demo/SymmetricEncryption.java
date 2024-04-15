@@ -9,6 +9,7 @@ public class SymmetricEncryption implements AbstractEncryption<String>{
     private static final String ALGORITHM="AES";
     private static final String TRANSFORMATION="AES";
     private final String key=generateKey();
+    SymmetricEncryption(){}
 
     private String generateKey() {
         return UUID.randomUUID().toString().substring(0,16);
@@ -27,8 +28,7 @@ public class SymmetricEncryption implements AbstractEncryption<String>{
             byte[] encrypted=cipher.doFinal(plainTextBytes);
             return Base64.getEncoder().encodeToString(encrypted);
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
     /**
@@ -44,8 +44,7 @@ public class SymmetricEncryption implements AbstractEncryption<String>{
             byte[] decryptedTextBytes = cipher.doFinal(encryptedTextBytes);
             return new String(decryptedTextBytes);
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }
