@@ -11,6 +11,10 @@ public class SymmetricEncryption implements AbstractEncryption<String>{
     private final String key=generateKey();
     private SymmetricEncryption(){}
 
+    public String getKey() {
+        return key;
+    }
+
     private String generateKey() {
         return UUID.randomUUID().toString().substring(0,16);
     }

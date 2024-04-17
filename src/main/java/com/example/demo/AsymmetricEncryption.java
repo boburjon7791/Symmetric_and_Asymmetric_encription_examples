@@ -10,6 +10,12 @@ public class AsymmetricEncryption implements AbstractEncryption<byte[]>{
      * It is key generation method example for asymmetric encryption
      * */
     private final KeyPair key=generateKey();
+    private final PublicKey publicKey=key.getPublic();
+
+    public PublicKey getPublicKey() {
+        return publicKey;
+    }
+
     private KeyPair generateKey(){
         try {
             KeyPairGenerator generator = KeyPairGenerator.getInstance(ALGORITHM);
